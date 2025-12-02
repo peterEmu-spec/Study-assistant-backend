@@ -18,3 +18,19 @@ class Subject(Base):
     difficulty=Column(Integer())
     description=Column(Text())
 
+class Study_Session(Base):
+    __tablename__="study_session"
+
+    id=Column(Integer(),primary_key=True)
+    duration=Column(Integer(),)
+    notes=Column(Text())
+    mood=Column(Integer())
+    created_at=Column(DateTime())
+
+class Habit(Base):
+    __tablename__="habit"
+
+    id=Column(Integer(),primary_key=True)
+    title=Column(Text(),nullable=False)
+    frequency=Column(Text())
+   
