@@ -1,5 +1,15 @@
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column,Integer,Text,DateTime
+from sqlalchemy import Column,Integer,Text,DateTime,create_engine
+from sqlalchemy.orm import  sessionmaker 
+
+engine =create_engine("sqlite:///study_assistant.db", echo=True)
+Session=sessionmaker(bind=engine)
+def get_db():
+    session=Session()
+    try:
+        yield session
+    finally:
+        session.close()
 
 Base=declarative_base()
 class User(Base):
